@@ -21,7 +21,7 @@
     'Welcome back, Andrew'
 */
 
-const greetUser = (username) => {
+const greetUser = username => {
     return (`Welcome back, ${username}`)
 }
 console.log(greetUser('Andrew'))
@@ -52,17 +52,23 @@ console.log(greetUser('Andrew'))
 */
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
-
+// .includes works on array and strings
 const canWeDeliver = zipcode => {
-      if(let i = 0; i < deliveryAreaZipCodes.length; i++){
-          deliveryAreaZipCodes[i] === `${zipcode}`
-          return 'You are eligible for delivery'
-      } else {
-          return 'You are not eligible for delivery'           
-      }
-} 
-
+    if (deliveryAreaZipCodes.includes(zipcode)){
+        return 'you win'
+    } else {
+        return 'you lose'
+    }
+}
 console.log(canWeDeliver(85205))
+
+
+
+
+
+
+
+
 
 
 
@@ -83,7 +89,14 @@ console.log(canWeDeliver(85205))
     Name your new function `canWeDeliverTwo`.
 */
 
-// CODE HERE
+const canWeDeliverTwo = zipcode => {
+    for(let i = 0; i < deliveryAreaZipCodes.length; i++){
+        if(zipcode = deliveryAreaZipCodes[i]){
+        return 'you win'
+    }
+}
+return 'you lose'
+}
 
 
 //////////////////PROBLEM 3////////////////////
@@ -119,8 +132,9 @@ const deals = [
     to replace the 15 with a 10.
 */
 
-//CODE HERE
+deals[0].title = deals[0].title.replace('15', '10')
 
+console.log(deals)
 
 
 /*
@@ -136,4 +150,6 @@ const deals = [
     to be displaying wrong on the live site.
 */
 
-//CODE HERE
+deals[1].desc = deals[1].desc.replace('March', 'April').trim()
+
+console.log(deals)

@@ -34,8 +34,8 @@ const pizza = {
     name: 'Pizzaz',
     price: 12,
     category: 'Entree',
-    popularity: 1,
-    rating: 5,
+    popularity: 10,
+    rating: 10,
     tags: ['gluten-free', 'kids', 'calories']
 }
 
@@ -59,7 +59,7 @@ console.log(pizza.popularity)
     get the value.
 */
 
-console.log(pizza.tags['kids'])
+console.log(pizza.tags[1])
 
 
 /*
@@ -99,25 +99,45 @@ console.log(category)
 const foodArr = [
 {
     name: 'Macaroni',
-    price: 10,
+    price: 5,
     category: 'Entree',
     popularity: 2,
     rating: 2,
-    tags: ['Gluten-free', 'kids', 'calories']
+    tags: ['pasta', 'noodle', 'calories']
 },
 {
     name:'Steak',
     price: 20,
     category: 'Entree',
-    popularity: 2,
-    rating: 2,
-    tags: ['Gluten-free', 'kids', 'calories']
+    popularity: 3,
+    rating: 3,
+    tags: ['Moo', 'Cow', 'calories']
 },
 {
-    // Need to start website design...should have done these first cuz theyre easier
+    name: 'pizza',
+    price: 15,
+    category: 'Entree',
+    popularity: 10,
+    rating: 10,
+    tags: ['gluten-free', 'cheese', 'calories']
+},
+{
+    name: 'Spaghetti',
+    price: 12,
+    category: 'Entree',
+    popularity: 9,
+    rating: 9,
+    tags: ['delicious', 'carbs', 'calories']
+},
+{
+    name: 'Burger',
+    price: 14,
+    category: 'Entree',
+    popularity: 7,
+    rating: 7,
+    tags: ['yummy', 'Meat', 'calories']
 }
 ]
-
 
 
 //////////////////PROBLEM 4////////////////////
@@ -132,11 +152,13 @@ const foodArr = [
     your food objects has.
 */
 
-//CODE HERE
-
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
 
+const filteredFood = foodArr.filter(pizzobj => {
+    return pizzobj.tags.includes('cheese')
+})
+
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -177,14 +199,27 @@ const foodArr = [
     Return the filtered array from the entire function
 */
 
-//CODE HERE
+const filterByProperty = (property, number, type) => {
+    const filteredArr = foodArr.filter(Entree => {
+        if (type === 'above'){
+            return Entree[property] > number
+        } else if (type === 'below'){
+            return Entree[property] < number
+        }
+    })
+    return filteredArr
+}
+
+console.log(filterByProperty('price', 6, 'above'))
 
 
-/*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
-*/
 
-//CODE HERE
+// /*
+//     Invoke the `filterByProperty` function passing
+//     in a value for each paramter.
+
+//     You'll have to console.log to see the filtered array
+// */
+
+console.log(filterByProperty('price', 6, 'above'))

@@ -32,12 +32,12 @@ const cart = [
         price: 7.99
     }
 ]
+const summedPrice = cart.reduce((acc, ele) => {
+    return acc + ele.price
+}, 0)
+ //tell accumulator what index to start at (0) and then add the element.property value to it one by one 
 
-const cartTotal = cart.reduce(function (acc, curr) {
-     return acc + curr
-
-})
-const summedPrice = cart.reduce([0], price)
+console.log(summedPrice)
 
 
 
@@ -57,12 +57,10 @@ const summedPrice = cart.reduce([0], price)
 */
 
 const calcFinalPrice = (cartTotal, couponValue, tax) => {
-    tax - couponValue
-
-const newTotal = calcFinalPrice(10, 3, .06)
-
+    return (cartTotal * (1 + tax)) - couponValue
 }
-console.log(calcFinalPrice())
+console.log(calcFinalPrice(10, 2, .06))
+//passing in 10 for cartTotal, 2 for couponValue and .06 for tax. Returning cartTotal of 10 multipled by 1+tax(0.6) - the couponValue of 2
 
 
 //////////////////PROBLEM 3////////////////////
@@ -86,7 +84,10 @@ console.log(calcFinalPrice())
 */
 
 /*
-
+    name: 'string',
+    address: 'string',
+    phone number: 'string', 
+    email: 'string'
 
 */
 
@@ -95,4 +96,13 @@ console.log(calcFinalPrice())
     guidelines.
 */
 
-//CODE HERE
+    //name, address, phone, and email could all be apart of a contact list of persons. 
+
+    const customer = {
+        name: 'Gibly Gib',           
+        address: "1234 Gibly Ln",
+        phone: "3454673879",
+        email: "email.com"
+ }
+
+

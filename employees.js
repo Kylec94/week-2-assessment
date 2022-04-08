@@ -1,29 +1,33 @@
-////////////////////////////////////////////////////
-///////////////////EMPLOYEES.JS/////////////////////
-////////////////////////////////////////////////////
-/*
-    In this file, you'll be writing classes to 
-    store information about restaurant employees.
-*/
+// // ////////////////////////////////////////////////////
+// // ///////////////////EMPLOYEES.JS/////////////////////
+// // ////////////////////////////////////////////////////
+// // /*
+// //     In this file, you'll be writing classes to 
+// //     store information about restaurant employees.
+// // */
 
-//////////////////PROBLEM 1////////////////////
-/*  
-    Create a new class called `Employee`.
-    Make sure to call your constructor, and 
-    require these 2 parameters: name, shifts.
+// // //////////////////PROBLEM 1////////////////////
+// // /*  
+// //     Create a new class called `Employee`.
+// //     Make sure to call your constructor, and 
+// //     require these 2 parameters: name, shifts.
 
-    Create a method on the class called 
-    `getSchedule` that prints a string:
-    [NAME] works on [SHIFTS]
-    Where NAME and SHIFTS reference the values
-    stored on the object.
-*/
+// //     Create a method on the class called 
+// //     `getSchedule` that prints a string:
+// //     [NAME] works on [SHIFTS]
+// //     Where NAME and SHIFTS reference the values
+// //     stored on the object.
+// // */
 
 class Employee {
     constructor (name, shifts){
         this.name = name
         this.shifts= shifts
 
+
+    }
+    getSchedule(){
+        console.log(`${this.name} works on ${this.shifts}`)    //METHOD OF CLASS = function named within a Class
     }
 }
 
@@ -32,41 +36,47 @@ class Employee {
 
 
 
-/*
-    Create a new instance of your class.
-    Save it to a variable called `empOne`.
 
-    You can use this sample data or make
-    up your own:
-    name: Jess
-    shifts: weekday mornings, weekday afternoons
-*/
+// /*
+//     Create a new instance of your class.
+//     Save it to a variable called `empOne`.
 
-const empOne = new Employee('Jess', 'weekday mornings, weekday afternoons')
+//     You can use this sample data or make
+//     up your own:
+//     name: Jess
+//     shifts: weekday mornings, weekday afternoons
+// */
 
-/*
-    Call the `getSchedule` method on the
-    `empOne` object.
-*/
+const empOne = new Employee('Jess', ['weekday mornings', 'weekday afternoons']) //new INSTANCE
+console.log(empOne) 
 
-//CODE HERE
+// /*
+//     Call the `getSchedule` method on the
+//     `empOne` object.
+// */
 
-
-/*
-    Make a copy of the empOne object
-    using the spread operator.
-    Save it to a variable called `empTwo`.
-
-    Change the name of `empTwo` to 'Nick'.
-
-    Hint: you can do this inline with the 
-    spread operator or reassign it using 
-    dot or bracket notation.
-*/
-
-let empTwo = {...empOne} 
+empOne.getSchedule()
 
 
+
+
+// // /*
+// //     Make a copy of the empOne object
+// //     using the spread operator.
+// //     Save it to a variable called `empTwo`.
+
+// //     Change the name of `empTwo` to 'Nick'.
+
+// //     Hint: you can do this inline with the 
+// //     spread operator or reassign it using 
+// //     dot or bracket notation.
+// // */
+
+
+const empTwo ={...empOne, name:'Nick'}
+
+
+console.log(empTwo)
 
 
 
@@ -94,8 +104,19 @@ let empTwo = {...empOne}
 */
 
 class Manager extends Employee {
-    constructor (name, shifts, employees)
+    constructor (name, shifts, employees){
+        super(name, shifts)
+        this.employees = employees
+    }
+    getEmployees(){
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+    addEmployee(emp){
+        this.employees.push(emp)
+    }
 }
+
+
 
 
 
@@ -110,7 +131,7 @@ class Manager extends Employee {
     employees: Cece and Schmidt
 */
 
-//CODE HERE
+const manager = new Manager('Winston', ['weekday mornings', 'weekday afternoons'], ['Cece', 'Schmidt'])
 
 
 /*
@@ -118,7 +139,7 @@ class Manager extends Employee {
     `manager` object.  
 */
 
-//CODE HERE
+manager.getEmployees()
 
 /*
     Call the `addEmployee` method on the 
@@ -126,7 +147,7 @@ class Manager extends Employee {
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+manager.addEmployee('Coach')
 
 /*
     Call the `getEmployees` method on the
@@ -134,4 +155,4 @@ class Manager extends Employee {
     that an employee was added.
 */
 
-//CODE HERE
+manager.getEmployees()
